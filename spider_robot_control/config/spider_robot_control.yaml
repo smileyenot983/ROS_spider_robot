@@ -1,0 +1,41 @@
+spider_robot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  leg1_leg11_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg1_leg11
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg2_leg22_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg2_leg22
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg3_leg33_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg3_leg33
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg4_leg44_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg4_leg44
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+
+  leg11_leg111_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg11_leg111
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg22_leg222_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg22_leg222
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg33_leg333_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg33_leg333
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+  leg44_leg444_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: leg44_leg444
+    pid: {p: 100.0, i: 1.0, d: 10.0}
+

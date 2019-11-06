@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="spider_robot">
+
+
+	<gazebo>
+	  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		<robotNamespace>/spider_robot</robotNamespace>
+	  </plugin>
+	</gazebo>
+
+	<transmission name="simple_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="leg1_leg11">
+		<hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="leg_1">
+		<mechanicalReduction>50</mechanicalReduction>
+		<hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+	</transmission>
+
+    <link name ="world"/>
+
+    <link name="base_link">
+		<visual>
+		    <origin xyz="0 0 5"/>
+
+			<geometry>
+				<box size="2 2 2"/>
+			</geometry>
+			<material name="Cyan">
+				<color rgba="0 1 1 0.5"/>
+			</material>
+		</visual>
+		<inertial>
+      		<mass value="10"/>
+      		<inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    	</inertial>
+		<collision>
+      		<geometry>
+        		<box size="0.3 0.25 0.6"/>
+      		</geometry>
+    	</collision>
+	</link>
+
+    <joint name="world_to_base" type="fixed">
+		<parent link = "world"/>
+		<child link = "base_link"/>
+	</joint>
+
+	<xacro:macro name="link_cylinder" params="name radius length">
+		<link name="${name}">
+		<visual>
+
+			<geometry>
+				<cylinder radius="${radius}" length="${length}"/>
+			</geometry>
+
+		</visual>
+		</link>
+	</xacro:macro>
+
+	<xacro:macro name="fixed_joint" params="name parent child coords angles">
+        <joint name="${name}" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${child}"/>
+            <origin xyz="${coords}" rpy="${angles}"/>
+        </joint>
+    </xacro:macro>
+
+	<xacro:property name="leg_radius" value="0.2"/>
+
+
+	<link_cylinder name="leg1"  radius="${leg_radius}" length="2"/>
+	<fixed_joint name="base_leg1" parent="base_link" child="leg1"
+				 coords="1.3 1.35 3.5" angles="0 2.3 0.8"/>
+	<link_cylinder name="leg11" radius = "${leg_radius}" length="2"/>
+	<fixed_joint name="leg1_leg11" parent="leg1" child="leg11"
+				 coords="-0.8 0 0.9" angles="0 1.5 0"/>
+	<link_cylinder name="leg111" radius="${leg_radius}" length="4"/>
+	<fixed_joint name="leg11_leg111" parent="leg11" child="leg111"
+				 coords="-1.3 0 0" angles="0 2 0"/>
+
+	<link_cylinder name="leg2"  radius="${leg_radius}" length="2"/>
+	<fixed_joint name="base_leg2" parent="base_link" child="leg2"
+				 coords="-1.3 1.35 3.5" angles="0 -2.3 -0.8"/>
+	<link_cylinder name="leg22" radius = "${leg_radius}" length="2"/>
+	<fixed_joint name="leg2_leg22" parent="leg2" child="leg22"
+				 coords="0.8 0 0.9" angles="0 1.5 0"/>
+	<link_cylinder name="leg222" radius="${leg_radius}" length="4"/>
+	<fixed_joint name="leg22_leg222" parent="leg22" child="leg222"
+				 coords="-1.3 0 0" angles="0 -2 0"/>
+
+	<link_cylinder name="leg3"  radius="${leg_radius}" length="2"/>
+	<fixed_joint name="base_leg3" parent="base_link" child="leg3"
+				 coords="-1.3 -1.35 3.5" angles="0 -2.3 0.8"/>
+	<link_cylinder name="leg33" radius = "${leg_radius}" length="2"/>
+	<fixed_joint name="leg3_leg33" parent="leg3" child="leg33"
+				 coords="0.8 0 0.9" angles="0 1.5 0"/>
+	<link_cylinder name="leg333" radius="${leg_radius}" length="4"/>
+	<fixed_joint name="leg33_leg333" parent="leg33" child="leg333"
+				 coords="-1.3 0 0" angles="0 -2 0"/>
+
+	<link_cylinder name="leg4"  radius="${leg_radius}" length="2"/>
+	<fixed_joint name="base_leg4" parent="base_link" child="leg4"
+				 coords="1.3 -1.35 3.5" angles="0 2.3 -0.8"/>
+	<link_cylinder name="leg44" radius = "${leg_radius}" length="2"/>
+	<fixed_joint name="leg4_leg44" parent="leg4" child="leg44"
+				 coords="-0.8 0 0.9" angles="0 4.5 0"/>
+	<link_cylinder name="leg444" radius="${leg_radius}" length="4"/>
+	<fixed_joint name="leg44_leg444" parent="leg44" child="leg444"
+				 coords="1.3 0 -0.5" angles="0 2.2 0"/>
+	
+
+
+</robot>
