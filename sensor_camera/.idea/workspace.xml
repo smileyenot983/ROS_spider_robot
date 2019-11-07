@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63cc9676-5fec-4d20-96e4-38a9c6df9755" name="Default Changelist" comment="" />
+    <list default="true" id="7420b380-fb07-41e0-96e9-02f8c9c0aad4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="1S1HHZAG9ysEr3FCiSqX3GQ2THo" />
+  <component name="ProjectId" id="1TIXsQdFdeHdyoQNnfWkGgWn5Bm" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spider_robot_control" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -30,24 +30,27 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="63cc9676-5fec-4d20-96e4-38a9c6df9755" name="Default Changelist" comment="" />
-      <created>1570724094925</created>
+      <changelist id="7420b380-fb07-41e0-96e9-02f8c9c0aad4" name="Default Changelist" comment="" />
+      <created>1573148789686</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570724094925</updated>
-      <workItem from="1570724107251" duration="1144000" />
-      <workItem from="1571239044269" duration="5955000" />
-      <workItem from="1571253579727" duration="3714000" />
-      <workItem from="1571405052598" duration="130000" />
-      <workItem from="1571899855461" duration="1799000" />
-      <workItem from="1572074180739" duration="21000" />
-      <workItem from="1572893574831" duration="24868000" />
-      <workItem from="1573062907321" duration="5284000" />
-      <workItem from="1573148693220" duration="13000" />
+      <updated>1573148789686</updated>
+      <workItem from="1573148792037" duration="8010000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/subscriber.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

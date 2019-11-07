@@ -6,52 +6,45 @@
 	  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 		<robotNamespace>/spider_robot</robotNamespace>
 	  </plugin>
+
 	</gazebo>
 
+	<gazebo reference="camera_link">
+		<sensor type="camera" name="camera1">
+			<update_rate>30.0</update_rate>
+			<camera name="head">
+				<horizontal_fov>1.3962634</horizontal_fov>
+				<image>
+					<width>800</width>
+					<height>800</height>
+					<format>R8G8B8</format>
+				</image>
+				<clip>
+					<near>0.02</near>
+					<far>300</far>
+				</clip>
 
-<!--	<transmission name="tran1">-->
-<!--	  <type>transmission_interface/SimpleTransmission</type>-->
-<!--	  <joint name="leg1_leg11">-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </joint>-->
-<!--	  <actuator name="motor1">-->
-<!--		<mechanicalReduction>1</mechanicalReduction>-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </actuator>-->
-<!--	</transmission>-->
+			</camera>
 
-<!--	<transmission name="tran2">-->
-<!--	  <type>transmission_interface/SimpleTransmission</type>-->
-<!--	  <joint name="leg2_leg22">-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </joint>-->
-<!--	  <actuator name="motor2">-->
-<!--		<mechanicalReduction>1</mechanicalReduction>-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </actuator>-->
-<!--	</transmission>-->
 
-<!--	<transmission name="tran3">-->
-<!--	  <type>transmission_interface/SimpleTransmission</type>-->
-<!--	  <joint name="leg3_leg33">-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </joint>-->
-<!--	  <actuator name="motor3">-->
-<!--		<mechanicalReduction>1</mechanicalReduction>-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </actuator>-->
-<!--	</transmission>-->
+			<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>0.0</updateRate>
+				<cameraName>spider_robot/camera1</cameraName>
+				<imageTopicName>image_raw</imageTopicName>
+				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+				<frameName>camera_link</frameName>
+				<hackBaseline>0.07</hackBaseline>
+				<distortionK1>0.0</distortionK1>
+				<distortionK2>0.0</distortionK2>
+				<distortionK3>0.0</distortionK3>
+				<distortionT1>0.0</distortionT1>
+				<distortionT2>0.0</distortionT2>
+			</plugin>
+		</sensor>
 
-<!--	<transmission name="tran4">-->
-<!--	  <type>transmission_interface/SimpleTransmission</type>-->
-<!--	  <joint name="leg4_leg44">-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </joint>-->
-<!--	  <actuator name="motor4">-->
-<!--		<mechanicalReduction>1</mechanicalReduction>-->
-<!--		<hardwareInterface>EffortJointInterface</hardwareInterface>-->
-<!--	  </actuator>-->
-<!--	</transmission>-->
+	</gazebo>
+
 
 	<xacro:macro name="transm" params="t_name joint m_name">
 		<transmission name="${t_name}">
@@ -163,6 +156,30 @@
 	<transm t_name="tran333"  joint="leg33_leg333" m_name="motor333"/>
 	<transm t_name="tran444"  joint="leg44_leg444" m_name="motor444"/>
 
+	<transm t_name="tran_camera"  joint="camera_joint" m_name="motor_camera"/>
+
+
+
+
+	<revolute_joint name="camera_joint" parent="leg111" child="camera_link"
+				 coords="0.05 0 1" angles="0 0 0" axis="0 1 0" lower="-1" upper="1"/>
+
+	<link name="camera_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.5 0.5 0.5"/>
+			</geometry>
+			<material name="red"/>
+		</visual>
+
+		<inertial>
+			<mass value="1e-5"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+		</inertial>
+
+	</link>
 
 
 
