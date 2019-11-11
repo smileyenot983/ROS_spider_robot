@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find spider_robot_control)/config/spider_robot_control.yaml" command="load"/>
+  <rosparam file="$(find sensor_camera)/config/sensor_camera.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
