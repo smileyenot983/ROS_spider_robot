@@ -24,10 +24,22 @@ sensor_camera:
 ROS package with publisher(rotating camera) and subscriber(saving images from camera)
 ```
 
+integration_test:
+```sh
+ROS package which implements integration tests. It sends control signals to joints and checks if the error between setted and factical positions smaller than 0.01
+```
+
+unit_tests:
+```sh
+python script which implements forward kinematics for one leg of robot and unit tests which were designed to check forward kinematics function
+```
+
 ## Running the project
 * put package to src folder of your ros workspace
 * write "catkin_make"(in terminal)
 * write "source devel/setup.bash" (in terminal)
 * write "roslaunch" + "name_of_package" + "name_of_launch_file"(for example "roslaunch robot_gazebo display.launch")
 * to see how control or camera sensor  works first run model of robot in gazebo
+
+
 
