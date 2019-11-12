@@ -41,5 +41,7 @@ python script which implements forward kinematics for one leg of robot and unit 
 * write "roslaunch" + "name_of_package" + "name_of_launch_file"(for example "roslaunch robot_gazebo display.launch")
 * to see how control or camera sensor  works first run model of robot in gazebo
 
-
+## Running tests
+* to run unit tests just look at the examples shown below, i prepared examples for each test. There is nothing hard, just call the function which contains tests
+* running integration test is the same as running the package. How to run the package? Look at paragraph 'Running the project' above
 
