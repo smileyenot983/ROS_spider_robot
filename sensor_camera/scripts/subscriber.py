@@ -4,6 +4,9 @@ import rospy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
+import getpass
+
+user = getpass.getuser()
 
 import os
 
@@ -29,13 +32,14 @@ def increment():
 
 def image_callback(msg):
 
-	path = '/home/ramil/robot_ws/src/sensor_camera/images/pic' + str(counter) + '.png'
+	path = '/home/'+str(user)+'/robot_ws/src/sensor_camera/images/pic' + str(counter) + '.png'
 
 	cv2_img = bridge.imgmsg_to_cv2(msg, 'mono8')
 
 	cv2.imwrite(path,cv2_img)
 	increment()
 	print(counter)
+	print(user)
 
 if __name__ == '__main__':
 	main()
