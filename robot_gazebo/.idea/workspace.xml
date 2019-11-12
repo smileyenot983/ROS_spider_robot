@@ -11,7 +11,7 @@
   <component name="ProjectId" id="1S1HHZAG9ysEr3FCiSqX3GQ2THo" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spider_robot_control" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,6 +42,8 @@
       <workItem from="1571899855461" duration="1799000" />
       <workItem from="1572074180739" duration="21000" />
       <workItem from="1572893574831" duration="24868000" />
+      <workItem from="1573062907321" duration="5284000" />
+      <workItem from="1573148693220" duration="13000" />
     </task>
     <servers />
   </component>

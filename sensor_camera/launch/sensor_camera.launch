@@ -1,0 +1,26 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find sensor_camera)/config/sensor_camera.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/spider_robot" args="camera_joint_position_controller"/>
+
+
+  <node name="publish" pkg="sensor_camera" type="publisher.py" output="screen">
+	</node>
+
+  <node name="subscribe" pkg="sensor_camera" type="subscriber.py" output="screen">
+	</node>
+
+
+
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/spider_robot/joint_states" />
+  </node>
+
+</launch>

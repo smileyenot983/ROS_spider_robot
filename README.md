@@ -19,10 +19,15 @@ spider_robot_control:
 ROS package to control joints of robot
 ```
 
+sensor_camera:
+```sh
+ROS package with publisher(rotating camera) and subscriber(saving images from camera)
+```
+
 ## Running the project
 * put package to src folder of your ros workspace
 * write "catkin_make"(in terminal)
 * write "source devel/setup.bash" (in terminal)
 * write "roslaunch" + "name_of_package" + "name_of_launch_file"(for example "roslaunch robot_gazebo display.launch")
-* to see how control works first run model of robot in gazebo
+* to see how control or camera sensor  works first run model of robot in gazebo
 
