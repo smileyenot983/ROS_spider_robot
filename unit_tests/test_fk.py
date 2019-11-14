@@ -165,9 +165,9 @@ class test_FK(unittest.TestCase):
             
     def test_FK8_negall(self):
         result = np.array([[ 1.        ,  0.        ,  0.        ,  0.        ],
-           [ 1.        ,  0.33027906,  0.94388333, -3.86581297],
-           [ 1.        , -0.94388333,  0.33027906,  0.47941724],
-           [ 1.        ,  0.        ,  0.        ,  1.        ]])
+           [ 0.        ,  0.33027906,  0.94388333, -3.86581297],
+           [ 0.        , -0.94388333,  0.33027906,  0.47941724],
+           [ 0.        ,  0.        ,  0.        ,  1.        ]])
         fk_answer = FK(-4,-5,-1,-math.pi/4,-math.pi/7)
         self.assertTrue(np.allclose(fk_answer,result))
         
