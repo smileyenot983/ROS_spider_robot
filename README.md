@@ -3,6 +3,11 @@
 ![](robot_picture.png)
 
 
+[![Build Status](https://travis-ci.com/smileyenot983/DNLR_HA3.svg?branch=master)](https://travis-ci.com/smileyenot983/ROS_spider_robot)
+
+
+
+
 ## Description
 
 robot_description:
