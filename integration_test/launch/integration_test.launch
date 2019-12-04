@@ -1,0 +1,26 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find integration_test)/config/integration_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/spider_robot" args="leg11_leg111_position_controller leg22_leg222_position_controller leg33_leg333_position_controller leg44_leg444_position_controller "/>
+
+
+  <node name="publish" pkg="integration_test" type="publisher.py" output="screen">
+	</node>
+
+  <node name="subscribe" pkg="integration_test" type="subscriber.py" output="screen">
+	</node>
+
+
+
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/spider_robot/joint_states" />
+  </node>
+
+</launch>
